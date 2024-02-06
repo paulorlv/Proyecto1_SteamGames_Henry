@@ -12,6 +12,12 @@ df_gastos_items = pd.read_parquet('archivos_parquet/df_gastos_items.parquet')
 piv_norm = pd.read_parquet('archivos_parquet/piv_norm.parquet')
 item_sim_df = pd.read_parquet('archivos_parquet/item_sim_df.parquet')
 user_sim_df = pd.read_parquet('archivos_parquet/user_sim_df.parquet')
+# Tomo solo un 10% de mi df:
+df_reviews= df_reviews.sample(frac=0.1,random_state=42)
+
+item_sim_df= item_sim_df.sample(frac=0.1,random_state=42)
+user_sim_df= user_sim_df.sample(frac=0.1,random_state=42)
+
 
 
 def userdata(user_id):
@@ -46,39 +52,6 @@ def userdata(user_id):
         'porcentaje_recomendacion': round(float(porcentaje_recomendaciones), 2),
         'total_items': int(count_items)
     }
-
-def best_developer_year_func(year:int):
-    # Carga los datos de los juegos de steam
-    df_games = pd.read_csv('archivos csv/df_games.csv')
-    # Tomo solo un 10% de mi df:
-    df_games= df_games.sample(frac=0.1,random_state=42)
-    # Carga las revisiones de los usuarios
-    df_reviews = pd.read_csv('archivos csv/df_reviews.csv')
-    # Tomo solo un 10% de mi df:
-    df_reviews= df_reviews.sample(frac=0.1,random_state=42)
-    # Elimino columnas que nos seran necesarias en el estudio
-    df_games=df_games.drop(['publisher','title','early_access'],axis=1)
-    # Elimina las filas con valores faltantes en los datos de los juegos
-    df_games.dropna(inplace =True)
-    # Convierte el año de lanzamiento a int
-    df_games['año_lanzamiento'] = df_games['año_lanzamiento'].astype(int)
-    # Une los datos de los juegos y las revisiones en 'id'
-    func_4 = pd.merge(df_reviews,df_games,left_on='item_id',right_on='id',how='inner')
-    # Filtra los datos para obtener solo los juegos lanzados en el año dado
-    func_4 = func_4[func_4['año_lanzamiento'] ==year]
-    # Agrupa los datos por desarrollador 
-    mejores_dev = func_4.groupby('developer')['reviews_recommend'].sum().reset_index().sort_values(by='reviews_recommend',ascending=False)
-    # Verifica si no se encontraron desarrolladores con revisiones en ese año.
-    if mejores_dev.empty:
-        return 'No se encontraron reviews para items que hayan salido ese año'
-    else:
-        # Obtiene los tres primeros desarrolladores con más recomendaciones
-        puesto1 = mejores_dev.iloc[0][0]
-        puesto2 = mejores_dev.iloc[1][0]
-        puesto3 = mejores_dev.iloc[2][0]
-        puestos = {"Puesto 1": str(puesto1), "Puesto 2":str(puesto2), "Puesto 3": str(puesto3)}
-        # Devuelve los tres primeros desarrolladores con más recomendaciones
-        return puestos
 
 def recomendacion_juego(game):
 
