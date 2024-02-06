@@ -9,10 +9,11 @@ import operator
 
 df_reviews = pd.read_parquet('archivos_parquet/df_reviews.parquet')
 df_gastos_items = pd.read_parquet('archivos_parquet/df_gastos_items.parquet')
+item_sim_df = pd.read_parquet('archivos_parquet/item_sim_df.parquet')
 
 # Tomo solo un 10% de mi df:
 df_reviews= df_reviews.sample(frac=0.1,random_state=42)
-
+item_sim_df= item_sim_df.sample(frac=0.1,random_state=42)
 
 
 
@@ -51,4 +52,33 @@ def userdata(user_id):
     }
 
 
+def recomendacion_juego(game):
 
+    '''
+    Muestra una lista de juegos similares a un juego dado.
+
+    Args:
+        game (str): El nombre del juego para el cual se desean encontrar juegos similares.
+
+    
+
+    Returns:
+        None: Un diccionario con 5 nombres de juegos recomendados.
+
+    '''
+    # Obtener la lista de juegos similares ordenados
+    similar_games = item_sim_df.sort_values(by=game, ascending=False).iloc[1:6]
+
+    count = 1
+    contador = 1
+    recomendaciones = {}
+    
+    for item in similar_games:
+        if contador <= 5:
+            item = str(item)
+            recomendaciones[count] = item
+            count += 1
+            contador += 1 
+        else:
+            break
+    return recomendaciones
