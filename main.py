@@ -201,31 +201,3 @@ def developer_rec(developer_rec:str):
         return {developer_rec2:[f'Negative = {int(false_value)}',f'Positive = {int(true_value)}']}
     except Exception as e:
         return {"Error":str(e)}
-#Funcion 6
-@app.get('/recomendacion_juego',
-         description=""" <font color="blue">
-                    INSTRUCCIONES<br>
-                    1. Haga clik en "Try it out".<br>
-                    2. Ingrese el nombre de un juego en box abajo.<br>
-                    3. Scrollear a "Resposes" para ver los juegos recomendados.
-                    </font>
-                    """,
-         tags=["Recomendación"])
-def recomendacion_juego(game: str = Query(..., 
-                                         description="Juego a partir del cuál se hace la recomendación de otros juego", 
-                                         examples="Killing Floor")):
-    return af.recomendacion_juego(game)
-#Funcion 7
-@app.get('/recomendacion_usuario',
-         description=""" <font color="blue">
-                    INSTRUCCIONES<br>
-                    1. Haga clik en "Try it out".<br>
-                    2. Ingrese el id del usuario en box abajo.<br>
-                    3. Scrollear a "Resposes" para ver los juegos recomendados para ese usuario.
-                    </font>
-                    """,
-         tags=["Recomendación"])
-def recomendacion_usuario(user: str = Query(..., 
-                                         description="Usuario a partir del cuál se hace la recomendación de los juego", 
-                                         examples="76561197970982479")):
-    return af.recomendacion_usuario(user)
