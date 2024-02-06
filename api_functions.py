@@ -6,41 +6,13 @@ import operator
 
 # Datos a usar
 
-df_items_developer = pd.read_parquet('archivos_parquet/df_items_developer.parquet')
+
 df_reviews = pd.read_parquet('archivos_parquet/df_reviews.parquet')
 df_gastos_items = pd.read_parquet('archivos_parquet/df_gastos_items.parquet')
 piv_norm = pd.read_parquet('archivos_parquet/piv_norm.parquet')
 item_sim_df = pd.read_parquet('archivos_parquet/item_sim_df.parquet')
 user_sim_df = pd.read_parquet('archivos_parquet/user_sim_df.parquet')
 
-
-def developer(desarrollador):
-    '''
-    Esta función devuelve información sobre una empresa desarrolladora de videojuegos.
-         
-    Args:
-        desarrollador (str): Nombre del desarrollador de videojuegos.
-    
-    Returns:
-        dict: Un diccionario que contiene información sobre la empresa desarrolladora.
-            - 'cantidad_por_año' (dict): Cantidad de items desarrollados por año.
-            - 'porcentaje_gratis_por_año' (dict): Porcentaje de contenido gratuito por año según la empresa desarrolladora.
-    '''
-    # Filtra el dataframe por desarrollador de interés
-    data_filtrada = df_items_developer[df_items_developer['developer'] == desarrollador]
-    # Calcula la cantidad de items por año
-    cantidad_por_año = data_filtrada.groupby('año_lanzamiento')['item_id'].count()
-    # Calcula la cantidad de elementos gratis por año
-    cantidad_gratis_por_año = data_filtrada[data_filtrada['price'] == 0.0].groupby('año_lanzamiento')['item_id'].count()
-    # Calcula el porcentaje de elementos gratis por año
-    porcentaje_gratis_por_año = (cantidad_gratis_por_año / cantidad_por_año * 100).fillna(0).astype(int)
-
-    result_dict = {
-        'cantidad_items_por_año': cantidad_por_año.to_dict(),
-        'porcentaje_gratis_por_año': porcentaje_gratis_por_año.to_dict()
-    }
-    
-    return result_dict
 
 def userdata(user_id):
     '''
@@ -78,8 +50,12 @@ def userdata(user_id):
 def best_developer_year_func(year:int):
     # Carga los datos de los juegos de steam
     df_games = pd.read_csv('archivos csv/df_games.csv')
+    # Tomo solo un 10% de mi df:
+    df_games= df_games.sample(frac=0.1,random_state=42)
     # Carga las revisiones de los usuarios
     df_reviews = pd.read_csv('archivos csv/df_reviews.csv')
+    # Tomo solo un 10% de mi df:
+    df_reviews= df_reviews.sample(frac=0.1,random_state=42)
     # Elimino columnas que nos seran necesarias en el estudio
     df_games=df_games.drop(['publisher','title','early_access'],axis=1)
     # Elimina las filas con valores faltantes en los datos de los juegos

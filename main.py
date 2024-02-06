@@ -12,8 +12,10 @@ importlib.reload(af)
 app = FastAPI()
 
 #Comenzamos a trabajar las instancias de fastAPI
-
+df_items_developer = pd.read_parquet('archivos_parquet/df_items_developer.parquet')
 df_generos=pd.read_parquet('archivos_parquet/max_por_gen.parquet')
+# Tomo solo un 10% de mi df:
+df_generos= df_generos.sample(frac=0.1,random_state=42)
 
 #Funcion 1: (Developer)
 @app.get(path = '/developer',
@@ -24,10 +26,33 @@ df_generos=pd.read_parquet('archivos_parquet/max_por_gen.parquet')
                         </font>
                         """,
          tags=["Consultas Generales"])
-def developer(desarrollador: str = Query(..., 
-                            description="Desarrollador del videojuego", 
-                            examples='Valve')):
-    return af.developer(desarrollador)
+def developer(desarrollador):
+    '''
+    Esta función devuelve información sobre una empresa desarrolladora de videojuegos.
+         
+    Args:
+        desarrollador (str): Nombre del desarrollador de videojuegos.
+    
+    Returns:
+        dict: Un diccionario que contiene información sobre la empresa desarrolladora.
+            - 'cantidad_por_año' (dict): Cantidad de items desarrollados por año.
+            - 'porcentaje_gratis_por_año' (dict): Porcentaje de contenido gratuito por año según la empresa desarrolladora.
+    '''
+    # Filtra el dataframe por desarrollador de interés
+    data_filtrada = df_items_developer[df_items_developer['developer'] == desarrollador]
+    # Calcula la cantidad de items por año
+    cantidad_por_año = data_filtrada.groupby('año_lanzamiento')['item_id'].count()
+    # Calcula la cantidad de elementos gratis por año
+    cantidad_gratis_por_año = data_filtrada[data_filtrada['price'] == 0.0].groupby('año_lanzamiento')['item_id'].count()
+    # Calcula el porcentaje de elementos gratis por año
+    porcentaje_gratis_por_año = (cantidad_gratis_por_año / cantidad_por_año * 100).fillna(0).astype(int)
+
+    result_dict = {
+        'cantidad_items_por_año': cantidad_por_año.to_dict(),
+        'porcentaje_gratis_por_año': porcentaje_gratis_por_año.to_dict()
+    }
+    
+    return result_dict
 
 
 #Funcion 2: (userdata)
@@ -65,7 +90,7 @@ def UserForGenre(genero:str):
     try:
         if genero.lower() not in [x.lower() for x in df_generos['Género'].tolist()]:
             return "No se encontró ese genero"
-    
+        
         gen = df_generos[df_generos['Género'].str.lower() == genero.lower()] # Busco el genero especificado
         
         return { 
@@ -93,8 +118,12 @@ def best_developer_year(year:int):
     try:  
         # Carga los datos de los juegos de steam
         df_games = pd.read_csv('archivos csv/steam_games_limpio.csv')
+        # Tomo solo un 10% de mi df:
+        df_games= df_games.sample(frac=0.1,random_state=42)
         # Carga las revisiones de los usuarios
         df_reviews = pd.read_csv('archivos csv/user_reviews_limpio.csv')
+        # Tomo solo un 10% de mi df:
+        df_reviews= df_reviews.sample(frac=0.1,random_state=42)
         # Elimino columnas que nos seran necesarias en el estudio
         df_games=df_games.drop(['publisher','title','early_access'],axis=1)
         # Elimina las filas con valores faltantes en los datos de los juegos
@@ -142,8 +171,12 @@ def developer_rec(developer_rec:str):
     try:
         # Carga los datos de los juegos de steam
         df_games = pd.read_csv('archivos csv/steam_games_limpio.csv')
+        # Tomo solo un 10% de mi df:
+        df_games= df_games.sample(frac=0.1,random_state=42)
         # Carga las revisiones de los usuarios
         df_reviews = pd.read_csv('archivos csv/df_reviews.csv')
+        # Tomo solo un 10% de mi df:
+        df_reviews= df_reviews.sample(frac=0.1,random_state=42)
         df_games['id'] = df_games['id'].astype(int)
         df_reviews['reviews_item_id'] = df_reviews['reviews_item_id'].astype(int)
         # Merging los dos datasets, con una combinación interna en sus respectivos 'id'
