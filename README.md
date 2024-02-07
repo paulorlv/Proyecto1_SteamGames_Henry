@@ -56,7 +56,7 @@ Para generar estos modelos se adoptaron algoritmos basados en la memoria, los qu
 
 Para medir la similitud entre los juegos (item_similarity) y entre los usuarios (user_similarity) se utilizó la similitud del coseno que es una medida comúnmente utilizada para evaluar la similitud entre dos vectores en un espacio multidimensional. En el contexto de sistemas de recomendación y análisis de datos, la similitud del coseno se utiliza para determinar cuán similares son dos conjuntos de datos o elementos, y se calcula utilizando el coseno del ángulo entre los vectores que representan esos datos o elementos.
 
-El desarrollo para la creación de los dos modelos se presenta en [Modelo](htthttps://github.com/paulorlv/Proyecto1_SteamGames_Henry/tree/main/Modelo "Modelo")
+El desarrollo para la creación de los dos modelos se presenta en [Modelo](https://github.com/paulorlv/Proyecto1_SteamGames_Henry/tree/main/Modelo)
 
 #### Desarrollo de API
 Para el desarrolo de la API se decidió utilizar el framework FastAPI, creando las siguientes funciones:
