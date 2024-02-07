@@ -3,15 +3,15 @@
 
 ### Esquema de contenido:
 - [Introduccion](https://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/README.md#introduccion)
-- [Contexto](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry/Contexto)
-- [Desarrollo](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry/Desarrollo)
- - [ETL](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry/ETL)
- - [Feature engineering](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry/Featureengineering)
-  - [EDA](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry/EDA)
-  - [Modelo de aprendizaje automático](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry/Modelodeaprendizajeautomático)
-  - [Desarrollo de API](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry/DesarrollodeAPI)
-  - [Deployment](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry/Deployment)
-  - [Video](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry/Video)
+- [Contexto](https://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/README.md#contexto)
+- [Desarrollo](https://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/README.md#desarrollo)
+ - [ETL](https://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/README.md#etl)
+ - [Feature engineering](https://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/README.md#featureengineering)
+  - [EDA](https://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/README.md#eda)
+  - [Modelo de aprendizaje automático](https://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/README.md#modelodeaprendizajeautomatico)
+  - [Desarrollo de API](https://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/README.md#desarrollodeapi)
+  - [Deployment](https://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/README.md#deployment)
+  - [Video](https://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/README.md#video)
 
 ### Introduccion
 Este proyecto simula el rol de un MLOps Engineer, es decir, la combinación de un Data Engineer y Data Scientist, para la plataforma multinacional de videojuegos Steam. Para su desarrollo, se entregan unos datos y se solicita un Producto Mínimo Viable que muestre una API deployada en un servicio en la nube y la aplicación de dos modelos de Machine Learning, por una lado, un análisis de sentimientos sobre los comentarios de los usuarios de los juegos y, por otro lado, la recomendación de juegos a partir de dar el nombre de un juego y/o a partir de los gustos de un usuario en particular.
