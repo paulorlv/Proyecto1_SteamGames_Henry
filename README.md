@@ -2,16 +2,16 @@
 # Proyecto de MLOps de Steam
 
 ### Esquema de contenido:
-- ####[Introduccion](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry#Introduccion)
-- ####[Contexto](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry#Contexto)
-- ####[Desarrollo](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry#Desarrollo)
- - ######[ETL](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry#ETL)
-  - ######[Feature engineering](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry#Feature engineering)
-  - ######[EDA](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry#EDA)
-  - ######[Modelo de aprendizaje automático](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry#Modelo de aprendizaje automático)
-  - ######[Desarrollo de API](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry#Desarrollo de API)
-  - ######[Deployment](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry#Deployment)
-  - ######[Video](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry#Video)
+- [Introduccion](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry#Introduccion)
+- [Contexto](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry#Contexto)
+- [Desarrollo](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry#Desarrollo)
+ - [ETL](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry#ETL)
+ - [Feature engineering](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry#Feature engineering)
+  - [EDA](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry#EDA)
+  - [Modelo de aprendizaje automático](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry#Modelo de aprendizaje automático)
+  - [Desarrollo de API](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry#Desarrollo de API)
+  - [Deployment](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry#Deployment)
+  - [Video](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry#Video)
   
 ###Introduccion
 Este proyecto simula el rol de un MLOps Engineer, es decir, la combinación de un Data Engineer y Data Scientist, para la plataforma multinacional de videojuegos Steam. Para su desarrollo, se entregan unos datos y se solicita un Producto Mínimo Viable que muestre una API deployada en un servicio en la nube y la aplicación de dos modelos de Machine Learning, por una lado, un análisis de sentimientos sobre los comentarios de los usuarios de los juegos y, por otro lado, la recomendación de juegos a partir de dar el nombre de un juego y/o a partir de los gustos de un usuario en particular.
@@ -56,7 +56,7 @@ Para generar estos modelos se adoptaron algoritmos basados en la memoria, los qu
 
 Para medir la similitud entre los juegos (item_similarity) y entre los usuarios (user_similarity) se utilizó la similitud del coseno que es una medida comúnmente utilizada para evaluar la similitud entre dos vectores en un espacio multidimensional. En el contexto de sistemas de recomendación y análisis de datos, la similitud del coseno se utiliza para determinar cuán similares son dos conjuntos de datos o elementos, y se calcula utilizando el coseno del ángulo entre los vectores que representan esos datos o elementos.
 
-El desarrollo para la creación de los dos modelos se presenta en [Modelo](httphttps://github.com/paulorlv/Proyecto1_SteamGames_Henry/tree/main/Modelo:// "Modelo")
+El desarrollo para la creación de los dos modelos se presenta en [Carpeta de Modelo](httphttps://github.com/paulorlv/Proyecto1_SteamGames_Henry/tree/main/Modelo:// "Modelo")
 
 #### Desarrollo de API
 Para el desarrolo de la API se decidió utilizar el framework FastAPI, creando las siguientes funciones:
