@@ -2,7 +2,7 @@
 # Proyecto de MLOps de Steam
 
 ### Esquema de contenido:
-- [Introduccion](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry#Introduccion)
+- [Introduccion](https://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/README.md#introduccion)
 - [Contexto](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry/Contexto)
 - [Desarrollo](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry/Desarrollo)
  - [ETL](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry/ETL)
