@@ -6,10 +6,10 @@
 - [Contexto](https://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/README.md#contexto)
 - [Desarrollo](https://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/README.md#desarrollo)
  - [ETL](https://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/README.md#etl)
- - [Feature engineering](https://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/README.md#featureengineering)
+ - [Feature engineering](https://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/README.md#feature-engineering)
   - [EDA](https://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/README.md#eda)
-  - [Modelo de aprendizaje automático](https://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/README.md#modelodeaprendizajeautomatico)
-  - [Desarrollo de API](https://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/README.md#desarrollodeapi)
+  - [Modelo de aprendizaje automático](https://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/README.md#modelo-de-aprendizaje-autom%C3%A1tico)
+  - [Desarrollo de API](https://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/README.md#desarrollo-de-api)
   - [Deployment](https://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/README.md#deployment)
   - [Video](https://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/README.md#video)
 
