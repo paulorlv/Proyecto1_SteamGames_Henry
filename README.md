@@ -24,7 +24,7 @@ Steam es una plataforma de distribución digital de videojuegos desarrollada por
 #### ETL
 Se realizó la extracción, transformación y carga (ETL) de los tres conjuntos de datos entregados. Dos de los conjuntos de datos se encontraban anidados, es decir había columnas con diccionarios o listas de diccionarios, por lo que aplicaron distintas estrategias para transformar las claves de esos diccionarios en columnas. Luego se rellenaron algunos nulos de variables necesarias para el proyecto, se borraron columnas con muchos nulos o que no aportaban al proyecto, para optimizar el rendimiento de la API y teneniendo en cuenta las limitaciones de almacenamiento del deploy. Para las transformaciones se utilizó la librería Pandas.
 
-Los detalles del ETL se puede ver en ETL [ETL_steam_games](hthttps://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/ETL-/1_ETL_steam_games.ipynbtp:// "ETL_steam_games"), [ETL_user_reviews](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/ETL-/1_ETL_user_reviews.ipynb "ETL_user_reviews") y [ETL_users_items](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/ETL-/1_ETL_users_items.ipynb "ETL_users_items").
+Los detalles del ETL se puede ver en ETL  [ETL_steam_games](hthttps://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/ETL-/1_ETL_steam_games.ipynbtp:// "ETL_steam_games") , [ETL_user_reviews](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/ETL-/1_ETL_user_reviews.ipynb "ETL_user_reviews") y [ETL_users_items](http://https://github.com/paulorlv/Proyecto1_SteamGames_Henry/blob/main/ETL-/1_ETL_users_items.ipynb "ETL_users_items").
 
 #### Feature engineering
 
